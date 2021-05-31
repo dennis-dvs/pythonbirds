@@ -9,6 +9,14 @@ class Pessoa:
     def cumprimentar(self):
         return f'Olá {id(self)}'
 
+    @staticmethod
+    def metodo_estatico():
+        return 42
+
+    @classmethod
+    def nome_e_atributo_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}'
+
 
 if __name__ == '__main__':
     renzo = Pessoa(nome='Renzo')
@@ -22,7 +30,7 @@ if __name__ == '__main__':
     luciano.sobrenome = 'Ramalho'  # Não é uma boa prática fazer em tempo de execução
     del luciano.filhos  # Tanto criação e exclusão devido a dificuldade de entender o código
     luciano.olhos = 1
-    del luciano.olhos # Aqui será apagado o atributo do objeto mais o valor da classe retornará a aparecer
+    del luciano.olhos  # Aqui será apagado o atributo do objeto mais o valor da classe retornará a aparecer
     print(luciano.__dict__)  # __dict__ Mantem apenas referencias para os atributos de instâncias...
     print(renzo.__dict__)  # ...não para atributos de classes por ex.: olhos. Se forem alterados ele aparece
     # print(Pessoa.nome)   # Neste caso não tem sentido já que tem várias classes referenciadas não pelo atributo
@@ -32,3 +40,5 @@ if __name__ == '__main__':
     print(luciano.olhos)
     print(renzo.olhos)
     print(id(Pessoa.olhos), id(luciano.olhos), id(renzo.olhos))
+    print(Pessoa.metodo_estatico(), luciano.metodo_estatico())
+    print(Pessoa.nome_e_atributo_de_classe(), luciano.nome_e_atributo_de_classe())
