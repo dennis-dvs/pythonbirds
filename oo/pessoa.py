@@ -17,3 +17,7 @@ if __name__ == '__main__':
     print(luciano.idade)
     for filhos in luciano.filhos:
         print(filhos.nome)
+    luciano.sobrenome = 'Ramalho' # Não é uma boa prática fazer em tempo de execução
+    del luciano.filhos            # Tanto criação e exclusão devido a dificuldade de entender o código
+    print(luciano.__dict__)
+    print(renzo.__dict__)
